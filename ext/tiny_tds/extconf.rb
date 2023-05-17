@@ -31,8 +31,11 @@ freetds_ports_dir = File.expand_path(freetds_ports_dir)
 DIRS = %w(
   /opt/local
   /usr/local
-  /ucrt64
 )
+
+if ENV["RI_DEVKIT"] && ENV["MINGW_PREFIX"] # RubyInstaller Support
+  DIRS.push(File.join(ENV["RI_DEVKIT"], ENV["MINGW_PREFIX"]))
+end
 
 # Add the ports directory if it exists for local developer builds
 DIRS.unshift(freetds_ports_dir) if File.directory?(freetds_ports_dir)
