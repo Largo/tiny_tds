@@ -31,6 +31,7 @@ freetds_ports_dir = File.expand_path(freetds_ports_dir)
 DIRS = %w(
   /opt/local
   /usr/local
+  /ucrt64
 )
 
 # Add the ports directory if it exists for local developer builds
